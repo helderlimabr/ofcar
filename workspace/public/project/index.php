@@ -1,7 +1,7 @@
-|<?php
+<?php
 
 require_once 'bootstrap.php';
-require_once 'App\Connection.php';
+require_once 'App/Connection.php';
 
 use App\Models\ServProd;
 use App\Router;

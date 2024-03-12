@@ -2,15 +2,14 @@
 
 namespace App;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . './../vendor/autoload.php';
 
 use Dotenv\Dotenv;
 use Exception;
 use PDO;
 
 final class Connection {
-    private function __construct() {
-    }
+    private function __construct() {}
 
     public static function open() {
         if (file_exists('./.env')) {

@@ -25,20 +25,20 @@ DROP TABLE IF EXISTS `customers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customers` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `full_name` varchar(128) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `cpf` varchar(11) NOT NULL,
-  `logradouro` varchar(128) DEFAULT NULL,
-  `number` varchar(10) DEFAULT NULL,
-  `city` varchar(64) DEFAULT NULL,
-  `state_id` int DEFAULT NULL,
-  `creator_user` int NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `state_id` (`state_id`),
-  KEY `creator_user` (`creator_user`)
+                             `id` int NOT NULL AUTO_INCREMENT,
+                             `full_name` varchar(128) NOT NULL,
+                             `email` varchar(128) NOT NULL,
+                             `cpf` varchar(11) NOT NULL,
+                             `logradouro` varchar(128) DEFAULT NULL,
+                             `number` varchar(10) DEFAULT NULL,
+                             `city` varchar(64) DEFAULT NULL,
+                             `state_id` int DEFAULT NULL,
+                             `creator_user` int NOT NULL,
+                             `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+                             `updated_at` datetime DEFAULT NULL,
+                             PRIMARY KEY (`id`),
+                             KEY `state_id` (`state_id`),
+                             KEY `creator_user` (`creator_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -59,12 +59,12 @@ DROP TABLE IF EXISTS `parameters`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `parameters` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `description` varchar(45) NOT NULL,
-  `data` varchar(45) NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                              `id` int NOT NULL AUTO_INCREMENT,
+                              `description` varchar(45) NOT NULL,
+                              `data` varchar(45) NOT NULL,
+                              `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+                              `updated_at` datetime DEFAULT NULL,
+                              PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -86,13 +86,13 @@ DROP TABLE IF EXISTS `permission`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `permission` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `table_model` varchar(45) NOT NULL,
-  `permission` enum('list','read','create','update','delete') DEFAULT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `table_model` (`table_model`)
+                              `id` int NOT NULL AUTO_INCREMENT,
+                              `table_model` varchar(45) NOT NULL,
+                              `permission` enum('list','read','create','update','delete') DEFAULT NULL,
+                              `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+                              `updated_at` datetime DEFAULT NULL,
+                              PRIMARY KEY (`id`),
+                              KEY `table_model` (`table_model`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -114,12 +114,12 @@ DROP TABLE IF EXISTS `permission_profile`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `permission_profile` (
-  `profile_id` int NOT NULL,
-  `permission_id` int NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`profile_id`,`permission_id`),
-  KEY `permission_id` (`permission_id`)
+                                      `profile_id` int NOT NULL,
+                                      `permission_id` int NOT NULL,
+                                      `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+                                      `updated_at` datetime DEFAULT NULL,
+                                      PRIMARY KEY (`profile_id`,`permission_id`),
+                                      KEY `permission_id` (`permission_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -140,15 +140,15 @@ DROP TABLE IF EXISTS `product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `description` varchar(45) NOT NULL,
-  `cost_value` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `sale_value` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `seller_profile` int NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `seller_profile` (`seller_profile`)
+                           `id` int NOT NULL AUTO_INCREMENT,
+                           `description` varchar(45) NOT NULL,
+                           `cost_value` decimal(10,2) NOT NULL DEFAULT '0.00',
+                           `sale_value` decimal(10,2) NOT NULL DEFAULT '0.00',
+                           `seller_profile` int NOT NULL,
+                           `created_at` datetime NOT NULL,
+                           `updated_at` datetime DEFAULT NULL,
+                           PRIMARY KEY (`id`),
+                           KEY `seller_profile` (`seller_profile`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -169,11 +169,11 @@ DROP TABLE IF EXISTS `profile`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `profile` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `description` varchar(45) NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                           `id` int NOT NULL AUTO_INCREMENT,
+                           `description` varchar(45) NOT NULL,
+                           `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+                           `updated_at` datetime DEFAULT NULL,
+                           PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -195,17 +195,17 @@ DROP TABLE IF EXISTS `sales_order`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sales_order` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `gross_total_value` decimal(10,2) NOT NULL,
-  `net_total_value` decimal(10,2) NOT NULL,
-  `discount` decimal(10,2) DEFAULT NULL,
-  `user_id` int NOT NULL,
-  `status` int NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `status` (`status`)
+                               `id` int NOT NULL AUTO_INCREMENT,
+                               `gross_total_value` decimal(10,2) NOT NULL,
+                               `net_total_value` decimal(10,2) NOT NULL,
+                               `discount` decimal(10,2) DEFAULT NULL,
+                               `user_id` int NOT NULL,
+                               `status` int NOT NULL,
+                               `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+                               `updated_at` datetime DEFAULT NULL,
+                               PRIMARY KEY (`id`),
+                               KEY `user_id` (`user_id`),
+                               KEY `status` (`status`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -226,13 +226,13 @@ DROP TABLE IF EXISTS `sales_order_products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sales_order_products` (
-  `sales_order_id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `order` int NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`sales_order_id`,`product_id`),
-  KEY `product_id` (`product_id`)
+                                        `sales_order_id` int NOT NULL,
+                                        `product_id` int NOT NULL,
+                                        `order` int NOT NULL,
+                                        `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+                                        `updated_at` datetime DEFAULT NULL,
+                                        PRIMARY KEY (`sales_order_id`,`product_id`),
+                                        KEY `product_id` (`product_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -253,11 +253,11 @@ DROP TABLE IF EXISTS `sales_status`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sales_status` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `description` varchar(64) NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                                `id` int NOT NULL AUTO_INCREMENT,
+                                `description` varchar(64) NOT NULL,
+                                `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+                                `updated_at` datetime DEFAULT NULL,
+                                PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -278,13 +278,13 @@ DROP TABLE IF EXISTS `state`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `state` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(128) NOT NULL,
-  `acronym` varchar(2) NOT NULL,
-  `ibge_code` int NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                         `id` int NOT NULL AUTO_INCREMENT,
+                         `name` varchar(128) NOT NULL,
+                         `acronym` varchar(2) NOT NULL,
+                         `ibge_code` int NOT NULL,
+                         `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+                         `updated_at` datetime DEFAULT NULL,
+                         PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -306,19 +306,19 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(64) NOT NULL,
-  `full_name` varchar(256) NOT NULL,
-  `cpf` varchar(11) NOT NULL,
-  `email` varchar(256) NOT NULL,
-  `password` varchar(256) NOT NULL,
-  `profile_id` int NOT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_cpf` (`cpf`),
-  UNIQUE KEY `unique_username` (`username`),
-  KEY `profile_id` (`profile_id`)
+                        `id` int NOT NULL AUTO_INCREMENT,
+                        `username` varchar(64) NOT NULL,
+                        `full_name` varchar(256) NOT NULL,
+                        `cpf` varchar(11) NOT NULL,
+                        `email` varchar(256) NOT NULL,
+                        `password` varchar(256) NOT NULL,
+                        `profile_id` int NOT NULL,
+                        `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+                        `updated_at` datetime DEFAULT NULL,
+                        PRIMARY KEY (`id`),
+                        UNIQUE KEY `unique_cpf` (`cpf`),
+                        UNIQUE KEY `unique_username` (`username`),
+                        KEY `profile_id` (`profile_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -339,7 +339,7 @@ DROP TABLE IF EXISTS `valid_tables`;
 /*!50001 DROP VIEW IF EXISTS `valid_tables`*/;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `valid_tables` AS SELECT 
+/*!50001 CREATE VIEW `valid_tables` AS SELECT
  1 AS `table_name`*/;
 SET character_set_client = @saved_cs_client;
 
@@ -366,7 +366,7 @@ BEGIN
     SET cpf = REPLACE(REPLACE(cpf,'.',''),'-','');
     IF LENGTH(cpf) != 11 THEN
         RETURN FALSE;
-    END IF;
+END IF;
     SET soma = 0;
     SET var1 = 10;
     SET i = 1;
@@ -374,13 +374,13 @@ BEGIN
         SET soma = soma + SUBSTRING(cpf, i, 1) * var1;
         SET var1 = var1 - 1;
         SET i = i + 1;
-    END WHILE;
+END WHILE;
     SET resto = soma % 11;
     IF resto < 2 THEN
         SET digito1 = 0;
-    ELSE
+ELSE
         SET digito1 = 11 - resto;
-    END IF;
+END IF;
     SET soma = 0;
     SET var2 = 11;
     SET i = 1;
@@ -388,19 +388,19 @@ BEGIN
         SET soma = soma + SUBSTRING(cpf, i, 1) * var2;
         SET var2 = var2 - 1;
         SET i = i + 1;
-    END WHILE;
+END WHILE;
     SET soma = soma + digito1 * 2;
     SET resto = soma % 11;
     IF resto < 2 THEN
         SET digito2 = 0;
-    ELSE
+ELSE
         SET digito2 = 11 - resto;
-    END IF;
+END IF;
     IF digito1 = SUBSTRING(cpf, 10, 1) AND digito2 = SUBSTRING(cpf, 11, 1) THEN
         RETURN TRUE;
-    ELSE
+ELSE
         RETURN FALSE;
-    END IF;
+END IF;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -441,7 +441,7 @@ CREATE TRIGGER valida_email_before_insert_customers BEFORE INSERT ON customers F
 BEGIN
     IF NEW.email NOT REGEXP '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'O email informado é inválido!';
-    END IF;
+END IF;
 END
 //
 
@@ -450,7 +450,7 @@ CREATE TRIGGER valida_email_before_update_customers BEFORE UPDATE ON customers F
 BEGIN
     IF NEW.email NOT REGEXP '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'O email informado é inválido!';
-    END IF;
+END IF;
 END
 //
 
@@ -459,7 +459,7 @@ CREATE TRIGGER valida_email_before_insert_user BEFORE INSERT ON user FOR EACH RO
 BEGIN
     IF NEW.email NOT REGEXP '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'O email informado é inválido!';
-    END IF;
+END IF;
 END
 //
 
@@ -468,85 +468,59 @@ CREATE TRIGGER valida_email_before_update_user BEFORE UPDATE ON user FOR EACH RO
 BEGIN
     IF NEW.email NOT REGEXP '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'O email informado é inválido!';
-    END IF;
+END IF;
 END
 //
 
 DELIMITER //
 -- Trigger para validar CPF antes da atualização
 CREATE TRIGGER valida_cpf_before_insert_customers
-BEFORE INSERT ON customers 
-FOR EACH ROW 
+    BEFORE INSERT ON customers
+    FOR EACH ROW
 BEGIN
     IF NOT valida_cpf(NEW.cpf) THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'O CPF informado não é válido!';
-    END IF;
+END IF;
 END;
 //
 
 DELIMITER //
 -- Trigger para validar CPF antes da atualização
 CREATE TRIGGER valida_cpf_before_insert_user
-BEFORE INSERT ON user 
-FOR EACH ROW 
+    BEFORE INSERT ON user
+    FOR EACH ROW
 BEGIN
     IF NOT valida_cpf(NEW.cpf) THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'O CPF informado não é válido!';
-    END IF;
+END IF;
 END;
 //
 
 DELIMITER //
 -- Trigger para validar CPF antes da atualização
 CREATE TRIGGER valida_cpf_before_update_customers
-BEFORE UPDATE ON customers 
-FOR EACH ROW 
+    BEFORE UPDATE ON customers
+    FOR EACH ROW
 BEGIN
     IF NOT valida_cpf(NEW.cpf) THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'O CPF informado não é válido!';
-    END IF;
+END IF;
 END;
 //
 
 DELIMITER //
 -- Trigger para validar CPF antes da atualização
 CREATE TRIGGER valida_cpf_before_update_user
-BEFORE UPDATE ON user 
-FOR EACH ROW 
+    BEFORE UPDATE ON user
+    FOR EACH ROW
 BEGIN
     IF NOT valida_cpf(NEW.cpf) THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'O CPF informado não é válido!';
-    END IF;
+END IF;
 END;
 //
 
-insert into parameters (description, data) values ('Permissão Listar', 'list');
-insert into parameters (description, data) values ('Permissão Leitura', 'read');
-insert into parameters (description, data) values ('Permissão Criar', 'create');
-insert into parameters (description, data) values ('Permissão Atualizar', 'update');
-insert into parameters (description, data) values ('Permissão Deletar', 'delete');
-insert into permission (table_model, permission) values ('sales_order', 'list');
-insert into permission (table_model, permission) values ('sales_order', 'read');
-insert into permission (table_model, permission) values ('sales_order', 'create');
-insert into permission (table_model, permission) values ('sales_order', 'update');
-insert into permission (table_model, permission) values ('sales_order', 'delete');
-insert into permission (table_model, permission) values ('product', 'list');
-insert into permission (table_model, permission) values ('product', 'read');
-insert into permission (table_model, permission) values ('product', 'create');
-insert into permission (table_model, permission) values ('product', 'update');
-insert into permission (table_model, permission) values ('product', 'delete');
-insert into permission (table_model, permission) values ('profile', 'list');
-insert into permission (table_model, permission) values ('profile', 'read');
-insert into permission (table_model, permission) values ('profile', 'create');
-insert into permission (table_model, permission) values ('profile', 'update');
-insert into permission (table_model, permission) values ('profile', 'delete');
-insert into permission (table_model, permission) values ('user', 'list');
-insert into permission (table_model, permission) values ('user', 'read');
-insert into permission (table_model, permission) values ('user', 'create');
-insert into permission (table_model, permission) values ('user', 'update');
-insert into permission (table_model, permission) values ('user', 'delete');
 -- Dump completed on 2024-03-10 23:11:59
-
 
 
 
